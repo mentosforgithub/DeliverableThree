@@ -12,6 +12,7 @@ import cucumber.api.java.en.When;
 import static junit.framework.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  *
@@ -19,6 +20,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 public class StepDefinitions {
     private WebDriver driver;
+    private WebDriverWait wait;
     
     private final String HOME_PAGE = "http://store.demoqa.com/";
     
@@ -26,6 +28,7 @@ public class StepDefinitions {
     public void openFirefox() {
         System.setProperty("webdriver.gecko.driver", "libs\\geckodriver.exe");
         driver = new FirefoxDriver();
+        wait = new WebDriverWait(driver, 30);
     }
     
     @When("I navigate to the home page")
